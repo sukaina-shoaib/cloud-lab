@@ -1,7 +1,3 @@
-// ========================================
-// STUDENT PAGE ELEMENTS
-// ========================================
-
 const studentForm = document.getElementById("studentForm");
 const studentTable = document.getElementById("studentTable");
 const formMessage = document.getElementById("formMessage");
@@ -9,7 +5,7 @@ const studentCount = document.querySelector(".student-count");
 
 
 // ========================================
-// LOAD STUDENTS FROM NETLIFY
+// LOAD STUDENTS FROM NETLIFY BLOBS
 // ========================================
 
 async function loadStudents() {
@@ -17,16 +13,29 @@ async function loadStudents() {
     try {
 
         const response = await fetch(
-            "/.netlify/functions/students"
+            "/.netlify/functions/students",
+            {
+                method: "GET",
+                headers: {
+                    "Accept": "application/json"
+                }
+            }
         );
 
 
         if (!response.ok) {
-            throw new Error("Could not load students.");
+
+            throw new Error(
+                `Server error: ${response.status}`
+            );
+
         }
 
 
         const students = await response.json();
+
+
+        console.log("Students received:", students);
 
 
         displayStudents(students);
@@ -34,22 +43,29 @@ async function loadStudents() {
 
     } catch (error) {
 
-        console.error("Load error:", error);
+        console.error(
+            "Error loading students:",
+            error
+        );
 
 
         studentTable.innerHTML = `
             <tr>
                 <td colspan="4" class="empty-state">
-                    Could not load students.
+                    Unable to load students.
                 </td>
             </tr>
         `;
 
 
-        formMessage.textContent =
-            "Database connection error.";
+        studentCount.textContent = "0 Students";
 
-        formMessage.style.color = "#dc2626";
+
+        formMessage.textContent =
+            "Could not connect to student database.";
+
+        formMessage.style.color =
+            "#dc2626";
     }
 }
 
@@ -63,8 +79,8 @@ function displayStudents(students) {
     studentTable.innerHTML = "";
 
 
-    // No students
-    if (!students || students.length === 0) {
+    if (!Array.isArray(students) ||
+        students.length === 0) {
 
         studentTable.innerHTML = `
             <tr>
@@ -75,26 +91,35 @@ function displayStudents(students) {
         `;
 
 
-        studentCount.textContent = "0 Students";
+        studentCount.textContent =
+            "0 Students";
 
         return;
     }
 
 
-    // Display students
-    students.forEach(function (student) {
+    students.forEach(function(student) {
 
-        const row = document.createElement("tr");
+        const row =
+            document.createElement("tr");
 
 
         row.innerHTML = `
-            <td>${escapeHTML(student.name)}</td>
+            <td>
+                ${escapeHTML(student.name)}
+            </td>
 
-            <td>${escapeHTML(student.rollNumber)}</td>
+            <td>
+                ${escapeHTML(student.rollNumber)}
+            </td>
 
-            <td>${escapeHTML(student.email)}</td>
+            <td>
+                ${escapeHTML(student.email)}
+            </td>
 
-            <td>Semester ${student.semester}</td>
+            <td>
+                Semester ${student.semester}
+            </td>
         `;
 
 
@@ -103,9 +128,10 @@ function displayStudents(students) {
     });
 
 
-    // Update count
     studentCount.textContent =
-        `${students.length} Student${students.length === 1 ? "" : "s"}`;
+        `${students.length} Student${
+            students.length === 1 ? "" : "s"
+        }`;
 }
 
 
@@ -115,12 +141,11 @@ function displayStudents(students) {
 
 studentForm.addEventListener(
     "submit",
-    async function (event) {
+    async function(event) {
 
         event.preventDefault();
 
 
-        // Get form values
         const name =
             document.getElementById("name")
                 .value
@@ -145,7 +170,6 @@ studentForm.addEventListener(
             );
 
 
-        // Basic validation
         if (
             !name ||
             !email ||
@@ -163,7 +187,6 @@ studentForm.addEventListener(
         }
 
 
-        // Show saving message
         formMessage.textContent =
             "Saving student...";
 
@@ -173,37 +196,41 @@ studentForm.addEventListener(
 
         try {
 
-            // Send student to Netlify Function
-            const response = await fetch(
-                "/.netlify/functions/students",
-                {
-                    method: "POST",
+            const response =
+                await fetch(
+                    "/.netlify/functions/students",
+                    {
+                        method: "POST",
 
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
+                        headers: {
+                            "Content-Type":
+                                "application/json",
 
-                    body: JSON.stringify({
+                            "Accept":
+                                "application/json"
+                        },
 
-                        name: name,
+                        body: JSON.stringify({
 
-                        email: email,
+                            name: name,
 
-                        rollNumber: rollNumber,
+                            email: email,
 
-                        semester: semester
+                            rollNumber:
+                                rollNumber,
 
-                    })
-                }
-            );
+                            semester:
+                                semester
+
+                        })
+                    }
+                );
 
 
             const result =
                 await response.json();
 
 
-            // Check server response
             if (!response.ok) {
 
                 throw new Error(
@@ -213,7 +240,6 @@ studentForm.addEventListener(
             }
 
 
-            // Success
             formMessage.textContent =
                 "Student saved successfully!";
 
@@ -221,11 +247,10 @@ studentForm.addEventListener(
                 "#16a34a";
 
 
-            // Clear form
             studentForm.reset();
 
 
-            // Reload students from cloud storage
+            // Reload from Netlify database
             await loadStudents();
 
 
@@ -250,7 +275,7 @@ studentForm.addEventListener(
 
 
 // ========================================
-// PROTECT TABLE FROM HTML INJECTION
+// SECURITY
 // ========================================
 
 function escapeHTML(value) {
@@ -270,7 +295,7 @@ function escapeHTML(value) {
 
 
 // ========================================
-// LOAD DATA WHEN PAGE OPENS
+// START
 // ========================================
 
 loadStudents();
