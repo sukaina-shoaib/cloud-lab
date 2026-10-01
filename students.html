@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Students | CloudSphere</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                ☁ Cloud<span>Sphere</span>
+            </a>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="students.html" class="active">Students</a>
+                <a href="assignments.html">Assignments</a>
+                <a href="index.html#technologies">Technologies</a>
+                <a href="index.html#about">About</a>
+            </nav>
+
+            <a href="index.html#course" class="nav-button">
+                Explore Course
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- Page Header -->
+    <section class="page-header">
+
+        <div class="container">
+
+            <div class="small-title">
+                STUDENT MANAGEMENT
+            </div>
+
+            <h1>Cloud Computing Students</h1>
+
+            <p>
+                Manage student information using our cloud-based
+                student management system.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Student Section -->
+    <section class="section">
+
+        <div class="container">
+
+            <div class="student-layout">
+
+                <!-- Add Student -->
+                <div class="student-form-card">
+
+                    <div class="small-title">
+                        ADD STUDENT
+                    </div>
+
+                    <h2>Register New Student</h2>
+
+                    <p class="form-description">
+                        Enter the student's information below.
+                    </p>
+
+
+                    <form id="studentForm">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Student Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter student name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="student@example.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="rollNumber">
+                                Roll Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="rollNumber"
+                                placeholder="CC-001"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="semester">
+                                Semester
+                            </label>
+
+                            <select id="semester" required>
+
+                                <option value="">
+                                    Select Semester
+                                </option>
+
+                                <option value="1">
+                                    Semester 1
+                                </option>
+
+                                <option value="2">
+                                    Semester 2
+                                </option>
+
+                                <option value="3">
+                                    Semester 3
+                                </option>
+
+                                <option value="4">
+                                    Semester 4
+                                </option>
+
+                                <option value="5">
+                                    Semester 5
+                                </option>
+
+                                <option value="6">
+                                    Semester 6
+                                </option>
+
+                                <option value="7">
+                                    Semester 7
+                                </option>
+
+                                <option value="8">
+                                    Semester 8
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="form-button"
+                        >
+                            Add Student
+                        </button>
+
+
+                        <p id="formMessage" class="form-message"></p>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Student List -->
+                <div class="student-list-card">
+
+                    <div class="list-header">
+
+                        <div>
+
+                            <div class="small-title">
+                                STUDENT DATABASE
+                            </div>
+
+                            <h2>Registered Students</h2>
+
+                        </div>
+
+                        <div class="student-count">
+                            0 Students
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Roll Number</th>
+                                    <th>Email</th>
+                                    <th>Semester</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="studentTable">
+
+                                <tr>
+                                    <td colspan="4" class="empty-state">
+                                        No students added yet.
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="container footer-content">
+
+            <div>
+
+                <a href="index.html" class="logo">
+                    ☁ Cloud<span>Sphere</span>
+                </a>
+
+                <p>
+                    Cloud Computing Course Project
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="students.html">
+                    Students
+                </a>
+
+                <a href="assignments.html">
+                    Assignments
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 CloudSphere. Cloud Computing Project.
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/students.js"></script>
+
+</body>
+
+</html>

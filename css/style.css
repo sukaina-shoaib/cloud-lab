@@ -1,0 +1,779 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    color: #172033;
+    background: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1180px;
+    margin: auto;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    background: white;
+    border-bottom: 1px solid #e8edf5;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: #172033;
+}
+
+.logo span {
+    color: #2563eb;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #667085;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #2563eb;
+}
+
+.nav-button {
+    background: #2563eb;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        radial-gradient(circle at 80% 20%, #dbeafe 0, transparent 30%),
+        linear-gradient(135deg, #f8fbff, #eef5ff);
+    padding: 100px 0;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.badge {
+    display: inline-block;
+    background: #dbeafe;
+    color: #2563eb;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #2563eb;
+}
+
+.hero-text > p {
+    max-width: 650px;
+    color: #667085;
+    font-size: 17px;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-block;
+    padding: 13px 21px;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.primary-button {
+    background: #2563eb;
+    color: white;
+}
+
+.secondary-button {
+    border: 1px solid #cbd5e1;
+    background: white;
+    color: #334155;
+}
+
+
+/* Cloud Card */
+
+.cloud-card {
+    background: white;
+    border: 1px solid #dbe5f2;
+    border-radius: 20px;
+    padding: 50px 35px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(37, 99, 235, 0.13);
+}
+
+.cloud-icon {
+    width: 120px;
+    height: 120px;
+    margin: auto auto 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 65px;
+}
+
+.cloud-card h3 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.cloud-card p {
+    color: #667085;
+}
+
+.cloud-status {
+    margin-top: 25px;
+    padding: 10px;
+    background: #f0fdf4;
+    color: #15803d;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.cloud-status span {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    background: #111827;
+    color: white;
+    padding: 35px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+}
+
+.stat {
+    border-right: 1px solid #374151;
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat h2 {
+    color: #60a5fa;
+    font-size: 30px;
+}
+
+.stat p {
+    color: #cbd5e1;
+    font-size: 13px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 100px 0;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 55px;
+}
+
+.small-title {
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: #667085;
+}
+
+
+/* =========================
+   COURSE CARDS
+========================= */
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.course-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 28px;
+    transition: 0.3s;
+    background: white;
+}
+
+.course-card:hover {
+    transform: translateY(-7px);
+    border-color: #93c5fd;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.blue {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.purple {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+.green {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.orange {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+.course-card h3 {
+    margin-bottom: 10px;
+}
+
+.course-card p {
+    color: #667085;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.course-card a {
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+/* =========================
+   TECHNOLOGY
+========================= */
+
+.technology-section {
+    background: #111827;
+    color: white;
+    padding: 100px 0;
+}
+
+.section-heading.light p {
+    color: #9ca3af;
+}
+
+.technology-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.technology {
+    background: #1f2937;
+    border: 1px solid #374151;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.technology h3 {
+    margin: 15px 0 7px;
+}
+
+.technology p {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.tech-logo {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ff9900;
+    color: white;
+    border-radius: 10px;
+    font-weight: 800;
+}
+
+.tech-logo.azure {
+    background: #0078d4;
+}
+
+.tech-logo.google {
+    background: #4285f4;
+}
+
+.tech-logo.supabase {
+    background: #3ecf8e;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-content h2 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: #667085;
+    margin-bottom: 15px;
+}
+
+.about-content .primary-button {
+    margin-top: 15px;
+}
+
+.about-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    padding: 35px;
+}
+
+.about-icon {
+    font-size: 50px;
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.about-box h3 {
+    margin-bottom: 8px;
+}
+
+.about-box > p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.tech-line {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #e2e8f0;
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+.tech-line span {
+    color: #64748b;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #0b1120;
+    color: white;
+    padding-top: 45px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 35px;
+}
+
+.footer-content .logo {
+    color: white;
+}
+
+.footer-content p {
+    color: #94a3b8;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.copyright {
+    border-top: 1px solid #1e293b;
+    text-align: center;
+    color: #64748b;
+    padding: 20px;
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero-content,
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .course-grid,
+    .technology-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .stat {
+        border-right: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding: 70px 0;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .course-grid,
+    .technology-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    
+}
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+    background:
+        linear-gradient(135deg, #eff6ff, #f8fafc);
+    padding: 70px 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 44px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.page-header p {
+    color: #64748b;
+    max-width: 650px;
+    margin: auto;
+}
+
+
+/* =========================
+   STUDENT MANAGEMENT
+========================= */
+
+.student-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.student-form-card,
+.student-list-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 30px;
+}
+
+.student-form-card h2,
+.student-list-card h2 {
+    margin-bottom: 8px;
+}
+
+.form-description {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+
+/* Form */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px #dbeafe;
+}
+
+.form-button {
+    width: 100%;
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 13px;
+    border-radius: 7px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.form-button:hover {
+    background: #1d4ed8;
+}
+
+.form-message {
+    margin-top: 15px;
+    font-size: 13px;
+    text-align: center;
+}
+
+
+/* Student List */
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 20px;
+}
+
+.student-count {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f8fafc;
+}
+
+th {
+    text-align: left;
+    padding: 13px;
+    color: #64748b;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 15px 13px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 13px;
+}
+
+.empty-state {
+    text-align: center;
+    color: #94a3b8;
+    padding: 45px 20px;
+}
+
+
+/* =========================
+   RESPONSIVE STUDENTS
+========================= */
+
+@media (max-width: 900px) {
+
+    .student-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .page-header h1 {
+        font-size: 34px;
+    }
+
+    .student-form-card,
+    .student-list-card {
+        padding: 22px;
+    }
+
+    .list-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
