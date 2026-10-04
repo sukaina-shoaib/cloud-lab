@@ -1,8 +1,9 @@
 {
   "name": "cloud-labbb",
   "version": "1.0.0",
+  "private": true,
   "type": "module",
   "dependencies": {
-    "@netlify/blobs": "^10.0.0"
+    "@netlify/database": "^1.0.0"
   }
 }

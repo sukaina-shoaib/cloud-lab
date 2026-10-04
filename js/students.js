@@ -5,7 +5,7 @@ const studentCount = document.querySelector(".student-count");
 
 
 // ========================================
-// LOAD STUDENTS FROM NETLIFY BLOBS
+// LOAD STUDENTS FROM POSTGRESQL
 // ========================================
 
 async function loadStudents() {
@@ -118,7 +118,7 @@ function displayStudents(students) {
             </td>
 
             <td>
-                Semester ${student.semester}
+                Semester ${escapeHTML(student.semester)}
             </td>
         `;
 

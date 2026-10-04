@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(254) NOT NULL,
+    roll_number VARCHAR(50) NOT NULL UNIQUE,
+    semester SMALLINT NOT NULL CHECK (semester BETWEEN 1 AND 8),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
